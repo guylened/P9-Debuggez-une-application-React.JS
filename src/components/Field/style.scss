@@ -24,9 +24,15 @@ input {
   &:focus {
     color: $primary;
   }
-
-  font-family: "Manrope", sans-serif;
+  font-family: "Manrope", sans-serif;   
 }
+
+label {
+  color: white;
+  font-size: 12pt;
+  margin-bottom: 4px;
+}
+
 textarea {
   height: 336px;
   min-width: 424px;

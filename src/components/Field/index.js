@@ -5,6 +5,7 @@ import "./style.scss";
 export const FIELD_TYPES = {
   INPUT_TEXT: 1,
   TEXTAREA: 2,
+  EMAIL: 3,
 };
 
 const Field = ({ type = FIELD_TYPES.INPUT_TEXT, label, name, placeholder }) => {
@@ -16,6 +17,20 @@ const Field = ({ type = FIELD_TYPES.INPUT_TEXT, label, name, placeholder }) => {
           <label htmlFor={label}>{label}</label>
           <input
             type="text"
+            name={name}
+            placeholder={placeholder}
+            id={label}
+            data-testid="field-testid"
+          />
+        </>
+      );
+      break;
+    case FIELD_TYPES.EMAIL:
+      component = (
+        <>
+          <label htmlFor={label}>{label}</label>
+          <input
+            type="email"
             name={name}
             placeholder={placeholder}
             id={label}
