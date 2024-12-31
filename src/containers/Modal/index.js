@@ -5,6 +5,7 @@ import "./style.scss";
 
 const Modal = ({ opened, Content, children }) => {
   const [isOpened, setIsOpened] = useState(opened);
+
   return (
     <>
       {children({ isOpened, setIsOpened })}
@@ -28,12 +29,13 @@ const Modal = ({ opened, Content, children }) => {
 
 Modal.defaultProps = {
   opened: false,
-}
+};
 
 Modal.propTypes = {
   opened: PropTypes.bool,
-  Content: PropTypes.node.isRequired,
+  Content: PropTypes.oneOfType([PropTypes.node, PropTypes.elementType])
+    .isRequired,
   children: PropTypes.func.isRequired,
-}
+};
 
 export default Modal;

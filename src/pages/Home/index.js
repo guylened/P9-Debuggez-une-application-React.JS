@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import Menu from "../../containers/Menu";
 import ServiceCard from "../../components/ServiceCard";
 import EventCard from "../../components/EventCard";
@@ -11,10 +11,12 @@ import Logo from "../../components/Logo";
 import Icon from "../../components/Icon";
 import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
+import ModalContent from "../../containers/Modal/ModalContent";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
   const { data, error } = useData();
+  const [contentProps, setContentProps] = useState({ isError: false });
   const lastEvent = useMemo(() => {
     if (!data?.events || data.events.length === 0) return null;
     return [...data.events].sort(
@@ -114,19 +116,18 @@ const Page = () => {
         </section>
         <div className="FormContainer" id="contact">
           <h2 className="Title">Contact</h2>
-          <Modal
-            Content={
-              <div className="ModalMessage--success">
-                <div>Message envoyé !</div>
-                <p>
-                  Merci pour votre message nous tâcherons de vous répondre dans
-                  les plus brefs délais
-                </p>
-              </div>
-            }
-          >
+          <Modal Content={<ModalContent {...contentProps} />}>
             {({ setIsOpened }) => (
-              <Form onSuccess={() => setIsOpened(true)} onError={() => null} />
+              <Form
+                onSuccess={() => {
+                  setContentProps({ isError: false });
+                  setIsOpened(true);
+                }}
+                onError={() => {
+                  setContentProps({ isError: true });
+                  setIsOpened(true);
+                }}
+              />
             )}
           </Modal>
         </div>

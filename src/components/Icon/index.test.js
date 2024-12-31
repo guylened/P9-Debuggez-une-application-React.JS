@@ -11,7 +11,7 @@ describe("Icon component", () => {
       );
     });
   });
-  /* à revoir */
+  /* ajout de Facebook */
   describe("When a icon is created with name facebook", () => {
     it("the icon contain this path hash value bbea4c9e40773b969fdb6e406059f853", () => {
       render(<Icon name="facebook" />);

@@ -13,14 +13,14 @@ describe("When Menu is created", () => {
     expect(realisationsLink).toBeInTheDocument();
     expect(teamLink).toBeInTheDocument();
     expect(contactLink).toBeInTheDocument();
-    /* ajout vérification présence logo à revoir */
-    const logo = screen.findByText("724");
+    /* ajout vérification présence logo */
+    const logo = screen.getByTestId("logo");
     expect(logo).toBeInTheDocument();
   });
   it("all mandatory links have correct href attributes", async () => {
     render(<Menu />);
 
-    // Vérifiez les href des liens
+    /* vérifie la présence des liens */
     expect(screen.getByText("Nos services").closest("a")).toHaveAttribute(
       "href",
       "#nos-services"

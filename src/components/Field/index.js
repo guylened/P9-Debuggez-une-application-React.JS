@@ -21,6 +21,7 @@ const Field = ({ type = FIELD_TYPES.INPUT_TEXT, label, name, placeholder }) => {
             placeholder={placeholder}
             id={label}
             data-testid="field-testid"
+            required
           />
         </>
       );
@@ -35,6 +36,7 @@ const Field = ({ type = FIELD_TYPES.INPUT_TEXT, label, name, placeholder }) => {
             placeholder={placeholder}
             id={label}
             data-testid="field-testid"
+            required
           />
         </>
       );
@@ -43,7 +45,12 @@ const Field = ({ type = FIELD_TYPES.INPUT_TEXT, label, name, placeholder }) => {
       component = (
         <>
           <label htmlFor={label}>{label}</label>
-          <textarea name={name} id={label} data-testid="field-testid" />
+          <textarea
+            name={name}
+            id={label}
+            data-testid="field-testid"
+            required
+          />
         </>
       );
       break;
@@ -57,6 +64,7 @@ const Field = ({ type = FIELD_TYPES.INPUT_TEXT, label, name, placeholder }) => {
             placeholder={placeholder}
             id={label}
             data-testid="field-testid"
+            required
           />
         </>
       );

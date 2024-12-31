@@ -15,7 +15,9 @@ describe("When a field is created", () => {
   });
 
   it("a label is set with field", () => {
-    render(<Field placeholder="field-placeholder" label="field_label" name="test" />);
+    render(
+      <Field placeholder="field-placeholder" label="field_label" name="test" />
+    );
     const labelElement = screen.getByText(/field_label/);
     expect(labelElement).toBeInTheDocument();
   });
@@ -52,6 +54,8 @@ describe("When a field is created", () => {
       expect(fieldElement.type).toEqual("textarea");
     });
   });
+
+  /* ajouter le field email */
 
   describe("and its type is set to a wrong value", () => {
     it("a text input is rendered", () => {
