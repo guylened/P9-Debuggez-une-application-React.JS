@@ -11,7 +11,7 @@ import Logo from "../../components/Logo";
 import Icon from "../../components/Icon";
 import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
-import ModalContent from "../../containers/Modal/ModalContent";
+import ModalFormContent from "../../containers/ModalForm/ModalFormContent";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
@@ -42,7 +42,7 @@ const Page = () => {
         <Menu />
       </header>
       <main>
-        <section className="SliderContainer">
+        <section data-testid="SliderContainer" className="SliderContainer">
           <Slider />
         </section>
         <section id="nos-services" className="ServicesContainer">
@@ -116,7 +116,7 @@ const Page = () => {
         </section>
         <div className="FormContainer" id="contact">
           <h2 className="Title">Contact</h2>
-          <Modal Content={<ModalContent {...contentProps} />}>
+          <Modal Content={<ModalFormContent {...contentProps} />}>
             {({ setIsOpened }) => (
               <Form
                 onSuccess={() => {

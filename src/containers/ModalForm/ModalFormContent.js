@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const ModalContent = ({ isError }) =>
+const ModalFormContent = ({ isError }) =>
   isError ? (
     <div className="ModalMessage--error">
       <div>Erreur d&aposenvoi</div>
@@ -19,8 +19,8 @@ const ModalContent = ({ isError }) =>
     </div>
   );
 
-ModalContent.propTypes = {
+ModalFormContent.propTypes = {
   isError: PropTypes.bool.isRequired,
 };
 
-export default ModalContent;
+export default ModalFormContent;
