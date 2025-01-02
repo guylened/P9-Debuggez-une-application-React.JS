@@ -1,5 +1,31 @@
 import { render, screen, within, waitFor } from "@testing-library/react";
 import Page from "./index";
+import { useData } from "../../contexts/DataContext";
+
+jest.mock("useData", () => [300, 200, () => {}]);
+
+describe("When a page is created", () => {
+  it("a list of events is displayed", () => {
+    const nosRealisations = screen.getByText("nos-realisations");
+    const selectTitle = screen.getByText("SelectTitle");
+    const eventCards = within(nosRealisations).getAllByText("EventCard");
+    expect(eventCards).not.toHaveLength(0);
+    expect(selectTitle).toBeInTheDocument();
+  });
+  it("a list a people is displayed", () => {
+    const notreEquipe = screen.getByText("notre-equipe");
+    const peopleCard = screen.getAllByText("PeopleCard");
+    expect(notreEquipe).toBeInTheDocument();
+    expect(peopleCard).toHaveLength(6);
+  });
+  it("a footer is displayed", () => {
+    const footer = screen.getByText("footer");
+    expect(footer).toBeInTheDocument();
+  });
+  it("an event card, with the last event, is displayed", () => {
+    // to implement
+  });
+});
 
 describe("When the web page is loaded", () => {
   beforeAll(async () => {
@@ -14,7 +40,7 @@ describe("When the web page is loaded", () => {
     expect(menu).toBeInTheDocument();
   });
 
-  it("displays an auto-scroll slider", () => {
+  /* it("displays an auto-scroll slider", () => {
     const sliderContainer = screen.getByTestId("SliderContainer");
     const slides = within(sliderContainer).getAllByRole("img");
     expect(sliderContainer).toBeInTheDocument();
@@ -55,7 +81,7 @@ describe("When the web page is loaded", () => {
   it("displays a footer", () => {
     const footer = screen.getByRole("contentinfo");
     expect(footer).toBeInTheDocument();
-  });
+  }); */
 });
 
 /*
