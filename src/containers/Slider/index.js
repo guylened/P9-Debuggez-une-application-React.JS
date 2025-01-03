@@ -10,8 +10,8 @@ const Slider = () => {
 
   const byDateDesc = useMemo(
     () =>
-      data?.focus.sort((evtA, evtB) =>
-        new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
+      data?.focus.sort((a, b) =>
+        new Date(a.date) < new Date(b.date) ? -1 : 1
       ),
     [data]
   );
