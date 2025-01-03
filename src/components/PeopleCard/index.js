@@ -22,7 +22,7 @@ PeopleCard.propTypes = {
 };
 
 PeopleCard.defaultProps = {
-  imageAlt: "",
+  imageAlt: "teamMembers",
 };
 
 export default PeopleCard;

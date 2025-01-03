@@ -74,11 +74,19 @@ const Page = () => {
             </ServiceCard>
           </div>
         </section>
-        <section id="nos-realisations" className="EventsContainer">
+        <section
+          id="nos-realisations"
+          data-testid="EventsContainer"
+          className="EventsContainer"
+        >
           <h2 className="Title">Nos réalisations</h2>
           <EventList />
         </section>
-        <section id="notre-equipe" className="PeoplesContainer">
+        <section
+          id="notre-equipe"
+          data-testid="PeoplesContainer"
+          className="PeoplesContainer"
+        >
           <h2 className="Title">Notre équipe</h2>
           <p>Une équipe d’experts dédiés à l’ogranisation de vos évènements</p>
           <div className="ListContainer">
@@ -114,7 +122,7 @@ const Page = () => {
             />
           </div>
         </section>
-        <div className="FormContainer" id="contact">
+        <div id="contact" data-testid="FormContainer" className="FormContainer">
           <h2 className="Title">Contact</h2>
           <Modal Content={<ModalFormContent {...contentProps} />}>
             {({ setIsOpened }) => (
